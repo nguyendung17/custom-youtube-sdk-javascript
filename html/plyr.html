@@ -1,0 +1,33 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.1/plyr.min.js"
+    integrity="sha256-1FuMgoKC/5ZslLS+XQQswQHkgJDYuRj0Fzu3o3T/Ds0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.1/plyr.css"
+    integrity="sha256-axAP6bkQNfoU2c+eu5XmgSDj8Jk13R9w6lp0ex419WA=" crossorigin="anonymous" />
+<div style="width:640px;height:480px">
+    <video class="player" playsinline controls data-poster="/path/to/poster.jpg">
+        <source
+            src="https://video.fhan1-1.fna.fbcdn.net/v/t42.27313-2/10000000_646468932598116_5474850178634612736_n.mp4?_nc_cat=101&vs=c7c34963930a1bc4&_nc_vs=HBksFQAYJEdJQ1dtQUJrX1JYSDlVc0NBQUFBQUFBN2stcExickZxQUFBRhUAAsgBABUAGCRHQS1rcndXYmh5MFZjZllDQUFBQUFBQ0pQSVFWYnY0R0FBQUYVAgLIAQBLAYgScHJvZ3Jlc3NpdmVfcmVjaXBlATEVACUAHAAAGA8xMDAwMzM1MzE3OTEwNDEWptagleW2dBUCKAJDMxgLdnRzX3ByZXZpZXccF0BUPeNT987ZGB5kYXNoX2Jhc2ljX3Y0X2hxMl9mcmFnXzJfdmlkZW8SABgYdmlkZW9zLnZ0cy5jYWxsYmFjay5wcm9kGRwVABWE%2BQIAKBJWSURFT19WSUVXX1JFUVVFU1QbBIgVb2VtX3RhcmdldF9lbmNvZGVfdGFnBm9lcF9oZBNvZW1fcmVxdWVzdF90aW1lX21zDTE1ODgxNTI4MjA0MDMMb2VtX2NmZ19ydWxlB3VubXV0ZWQTb2VtX3JvaV9yZWFjaF9jb3VudAM2MjclAgA%3D&_nc_sid=a6057a&efg=eyJ2ZW5jb2RlX3RhZyI6Im9lcF9oZCJ9&_nc_ohc=UzA00JjqVuQAX-mwQnW&_nc_ht=video.fhan1-1.fna&oh=46758d6404b5e3b25559b6c4faea69ab&oe=5EA96F84&_nc_rid=16e1629ed523470"
+            type="video/mp4" />
+    </video>
+    <video class="player" playsinline controls data-poster="/path/to/poster.jpg">
+        <source
+            src="https://video.fhan1-1.fna.fbcdn.net/v/t42.27313-2/10000000_900809827011867_206033764487266304_n.mp4?_nc_cat=105&vs=35ca23479645f97d&_nc_vs=HBksFQAYJEdJQ1dtQUFiemI4aFNETURBQUFBQUFDZV90c0NickZxQUFBRhUAAsgBABUAGCRHSUNXbUFBdzVUaGFPZmNCQUFBQUFBREZ5elYxYnJGcUFBQUYVAgLIAQBLAYgScHJvZ3Jlc3NpdmVfcmVjaXBlATEVACUAHAAAGA8xMDAwMzM1MzE3OTEwNDEW3NGcxIS3dBUCKAJDMxgLdnRzX3ByZXZpZXccF0CyOn1wo9cKGB5kYXNoX2Jhc2ljX3Y0X2hxMV9mcmFnXzJfdmlkZW8SABgYdmlkZW9zLnZ0cy5jYWxsYmFjay5wcm9kGRwVABWE%2BQIAKBJWSURFT19WSUVXX1JFUVVFU1QbBIgVb2VtX3RhcmdldF9lbmNvZGVfdGFnBm9lcF9oZBNvZW1fcmVxdWVzdF90aW1lX21zDTE1ODgxNTM3NjA4NzcMb2VtX2NmZ19ydWxlB3VubXV0ZWQTb2VtX3JvaV9yZWFjaF9jb3VudAM2MjclAgA%3D&_nc_sid=a6057a&efg=eyJ2ZW5jb2RlX3RhZyI6Im9lcF9oZCJ9&_nc_ohc=9BQGun-6WDEAX_zHizG&_nc_ht=video.fhan1-1.fna&oh=10354c0c8650444342b9b0adbe0e29f3&oe=5EA970A2&_nc_rid=ee2a1b7945b24af"
+            type="video/mp4" />
+    </video>
+</div>
+<script>
+    $(".player").each(function() {
+        let elm = $(this);
+        elm.hide();
+        let id = 'id_' + new Date().getMilliseconds();
+        $(this).attr('id', id);
+        console.log(id);
+    
+        let a = new Plyr('#' + id);
+        a.on('ready',function () {
+            elm.show();
+        });
+    });
+
+</script>

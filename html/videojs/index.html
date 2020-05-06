@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.8.1/alt/video-js-cdn.min.css" integrity="sha256-kflKPH4F0cGv0BJg6I6+pb5nIO01FMeoK7qWoz1NayE=" crossorigin="anonymous" />
+</head>
+<body>
+  <video
+  style="width: 100%;"
+    id="vid1"
+    class="video-js vjs-default-skin"
+    controls 
+    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"}] }'
+  >
+  </video>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.8.1/video.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+  <script>
+  // An example of playing with the Video.js javascript API
+  // You can look at the doc there: http://docs.videojs.com/docs/guides/api.html
+  videojs('vid1').ready(function() {
+    var myPlayer = this;
+    myPlayer.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v=y6Sxv-sUYtM' });
+  });
+  </script>
+</body>

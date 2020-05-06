@@ -1,0 +1,32 @@
+<html>
+<head>
+    <script async src="https://static.amcdn.vn/tka/cdn.js" type="text/javascript"></script>
+    <script>
+        var arfAsync = arfAsync || [];
+    </script>
+
+    <script id="arf-core-js" onerror="window.arferrorload=true;" src="//media1.admicro.vn/cms/Arf.min.js"
+        async></script>
+</head>
+<body>
+    <script src="//static.amcdn.vn/js_boxapp/tagsponsorz_41449.js"></script>
+
+    <script>
+        let adsIds = [
+            "221",
+            "35401",
+            "7258",
+            "8888",
+            "k9av6t3a",
+            "7255",
+            "7256"
+        ];
+        for (let index in adsIds) {
+            let id = adsIds[index];
+            document.write(`<zone id="${id}"></zone><script>arfAsync.push("${id}");\<\/script>`);
+        }
+    </script>
+
+
+</body>
+</html>
