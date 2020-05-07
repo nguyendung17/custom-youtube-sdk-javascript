@@ -6,11 +6,11 @@
 </head>
 <body>
   <video
-  style="width: 100%;"
+  style="width: 640px;height: 480px;"
     id="vid1"
     class="video-js vjs-default-skin"
     controls 
-    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"}] }'
+    
   >
   </video>
 
@@ -21,7 +21,12 @@
   // You can look at the doc there: http://docs.videojs.com/docs/guides/api.html
   videojs('vid1').ready(function() {
     var myPlayer = this;
-    myPlayer.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v=y6Sxv-sUYtM' });
+    myPlayer.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v=ce0nmPadTuY' });
+    myPlayer.play();
+    setTimeout(function () {
+      console.log("Muted");
+      myPlayer.muted(true); 
+    },1000);
   });
   </script>
 </body>
