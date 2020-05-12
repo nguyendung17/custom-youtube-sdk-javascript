@@ -17,11 +17,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.8.1/video.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
   <script>
+    function getQueryParams(qs) {
+    qs = qs.split('+').join(' ');
+
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+
+    return params;
+}
   // An example of playing with the Video.js javascript API
   // You can look at the doc there: http://docs.videojs.com/docs/guides/api.html
   videojs('vid1').ready(function() {
     var myPlayer = this;
-    myPlayer.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v=ce0nmPadTuY' });
+    myPlayer.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+getQueryParams("v") });
     myPlayer.play();
     setTimeout(function () {
       console.log("Muted");
