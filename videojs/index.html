@@ -33,13 +33,32 @@
       // An example of playing with the Video.js javascript API
       // You can look at the doc there: http://docs.videojs.com/docs/guides/api.html
       videojs('vid1').ready(function () {
-        var myPlayer = this;
-        myPlayer.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v=' + url.v });
-        myPlayer.play();
+        var player = this;
+        player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v=' + url.v });
+        player.play();
         setTimeout(function () {
           console.log("Muted");
-          myPlayer.muted(true);
-        }, 1000);
+          player.muted(true);
+        }, 2000);
+        let locked = false;
+        player.on("play", function () {
+          locked = false;
+        });
+
+        player.on("timeupdate", function () {
+          let endTime = 1;
+          let ct = player.currentTime();
+          let d = player.duration();
+          let isPlaying = !player.paused();
+          if (isPlaying && d > 0 && ct > d - endTime && !locked) {
+            locked = true;
+            player.pause();
+            player.hasStarted(false);
+            player.currentTime(0);
+          }
+          //show play button on mobile
+          // $(".vjs-big-play-button").show();
+        });
       });
     }
 
